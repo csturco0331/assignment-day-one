@@ -1,5 +1,7 @@
 package com.cooksys.ftd.assignment.day.one;
 
+import java.util.Arrays;
+
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
@@ -41,14 +43,8 @@ public class Fibonacci {
      */
     public static int[] slice(int start, int end) throws IllegalArgumentException {
         if(start < 0 || end < 0 || end < start) throw new IllegalArgumentException();
-        int size = end-start;
-        int[] result = new int[size];
-        if(size == 0) return result;
-        int[] fib = fibonacci(end);
-        for(int i = 0; i < size; i++) {
-        	result[i] = fib[start++];
-        }
-        return result;
+        int fib[] = fibonacci(end);
+        return Arrays.copyOfRange(fib, start, end);
     }
 
     /**
